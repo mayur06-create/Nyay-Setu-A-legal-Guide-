@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Guide | Nyay Setu</title>
+    <meta name="description" content="Plain-language articles on your rights, legal processes, and how to protect yourself.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables / Light Theme */
+        :root {
+            --bg-color: #FAF8F4;
+            --card-bg: #FFFFFF;
+            --primary-accent: #61212B; /* Burgundy */
+            --primary-hover: #4A1525;
+            --secondary-bg: #4F2027; /* Darker Burgundy for Newsletter */
+            --btn-cream: #EBDAC2; /* Cream/Gold button */
+            --text-primary: #2C2A29;
+            --text-secondary: #7A7571;
+            --border-color: #E5E0D8;
+            --footer-bg: #291E1E;
+            --footer-text: #D5CCC9;
+            --footer-heading: #9B8B88;
+            
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            
+            --border-radius-sm: 4px;
+            --border-radius-card: 6px;
+            --border-radius-pill: 999px;
+            --transition-speed: 0.3s;
+        }
+
+        /* Basic Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, select, input {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+            color: inherit;
+            outline: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 0;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .navbar-left, .navbar-right {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar-left {
+            gap: 2rem;
+        }
+
+        .navbar-right {
+            gap: 1.5rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-actions {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                height: 100%;
+            }
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: var(--text-secondary);
+                padding: 0 1.25rem;
+                height: 100%;
+                border-bottom: 3px solid transparent;
+                transition: color var(--transition-speed), border-color var(--transition-speed);
+            }
+            .nav-links a:hover {
+                color: var(--primary-accent);
+            }
+            .nav-links a.active {
+                color: var(--primary-accent);
+                border-bottom-color: var(--primary-accent);
+            }
+            .nav-actions {
+                display: flex;
+            }
+        }
+
+        /* Lang Toggle */
+        .lang-toggle {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            height: 36px;
+        }
+        .lang-toggle button {
+            padding: 0 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .lang-toggle .active {
+            background-color: var(--primary-accent);
+            color: white;
+        }
+        .lang-toggle .inactive {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+        /* Nav Buttons */
+        .btn-signin {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-emergency {
+            background-color: var(--primary-accent);
+            color: white;
+            padding: 0 1.25rem;
+            height: 36px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color var(--transition-speed);
+        }
+        .btn-emergency:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+        }
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .hamburger-icon span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 20px 2rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        /* Filter Pills */
+        .pills-container {
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .pills-scroll {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+            padding-bottom: 15px;
+            scroll-behavior: smooth;
+        }
+        
+        .pills-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        .pills-scroll::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 10px;
+            margin: 0 50px;
+        }
+        .pills-scroll::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 10px;
+        }
+
+        .filter-pill {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--border-radius-pill);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: all var(--transition-speed);
+        }
+
+        .filter-pill:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .filter-pill.active {
+            background-color: var(--primary-accent);
+            color: white;
+            border-color: var(--primary-accent);
+        }
+
+        /* Articles Grid */
+        .articles-section {
+            padding-bottom: 4rem;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Common Card Styles */
+        .article-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-card);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .article-card.animate-up {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow var(--transition-speed);
+        }
+
+        .article-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px) !important;
+        }
+
+        .article-card-content {
+            padding: 32px 28px;
+            flex-grow: 1;
+        }
+
+        .article-meta {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .article-category {
+            color: var(--primary-accent);
+        }
+
+        .article-time {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .article-time::before {
+            content: "•";
+            margin: 0 8px;
+            color: var(--border-color);
+        }
+
+        .article-title {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .article-summary {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .article-card-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .article-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .article-arrow {
+            color: var(--text-secondary);
+            transition: color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .article-card:hover .article-arrow {
+            color: var(--primary-accent);
+            transform: translateX(4px);
+        }
+
+        /* Grid Specific Title Sizes */
+        .articles-grid .article-title {
+            font-size: 1.25rem;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            margin-bottom: 24px;   
+        }
+
+        .featured-article .article-card {
+            grid-column: 1 / -1; 
+        }
+
+        .featured-article .article-title {
+            font-size: 2rem;
+            max-width: 800px;
+        }
+        
+        .featured-article .article-summary {
+            font-size: 1.05rem;
+            max-width: 800px;
+        }
+
+        .featured-read-btn {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .featured-read-btn svg {
+            stroke-width: 2.5;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Load More Button */
+        .load-more-section {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .btn-load-more {
+            background-color: transparent;
+            border: 1px solid var(--primary-accent);
+            color: var(--primary-accent);
+            padding: 0.85rem 2rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-load-more:hover {
+            background-color: var(--primary-accent);
+            color: white;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: var(--secondary-bg);
+            padding: 5rem 20px;
+            text-align: center;
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separator from footer */
+        }
+
+        .newsletter-section h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #FAF4EB;
+        }
+
+        .newsletter-section p {
+            color: rgba(250, 244, 235, 0.8);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+
+        @media (min-width: 600px) {
+            .newsletter-form {
+                flex-direction: row;
+            }
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 1rem 1.25rem;
+            border-radius: var(--border-radius-sm);
+            border: none;
+            font-size: 0.95rem;
+            background-color: white;
+            color: var(--text-primary);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .btn-subscribe {
+            background-color: var(--btn-cream);
+            color: var(--text-primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .btn-subscribe:hover {
+            background-color: #DBC3A4;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            padding: 5rem 0 2rem;
+            color: var(--footer-text);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-col h3 {
+            color: var(--footer-heading);
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--footer-text);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity var(--transition-speed), color var(--transition-speed);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Floating Elements */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+        }
+
+        .floating-btn.small {
+            width: 45px;
+            height: 45px;
+            align-self: center;
+            background-color: var(--primary-accent);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+        }
+
+        .floating-btn.small.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.08);
+            background-color: var(--primary-hover);
+        }
+
+        .floating-btn svg {
+            width: 26px;
+            height: 26px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .floating-btn.small svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .floating-emergency {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--primary-accent);
+            color: white;
+            padding: 0.85rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+        }
+        .floating-emergency:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-hover);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <div class="logo-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem of India" class="logo">
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#">Explore Issues</a>
+                    <a href="#" class="active">Guide</a>
+                    <a href="#">Directory</a>
+                    <a href="#">News</a>
+                    <a href="#">RTI Generator</a>
+                    <a href="#">AI Analysis</a>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <div class="nav-actions">
+                    <div class="lang-toggle">
+                        <button class="active">EN</button>
+                        <button class="inactive">हिं</button>
+                    </div>
+                    <button class="btn-signin">SIGN IN</button>
+                    <button class="btn-emergency">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        EMERGENCY
+                    </button>
+                </div>
+
+                <button class="btn-menu" id="mobileMenuBtn">
+                    <div class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    MENU
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <button class="drawer-close" id="drawerCloseBtn">✕</button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Legal Guide</h1>
+            <p>Plain-language articles on your rights, legal processes, and how to protect yourself.</p>
+        </div>
+    </header>
+
+    <!-- Filter Pills -->
+    <section class="pills-container">
+        <div class="pills-scroll" id="topicPills">
+            <!-- Rendered by JS -->
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section">
+        <div class="container">
+            
+            <!-- Featured Article -->
+            <div class="featured-article" id="featuredArticle">
+                <!-- Rendered by JS -->
+            </div>
+
+            <!-- Grid Articles -->
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Rendered by JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Load More Section -->
+    <div class="load-more-section">
+        <button class="btn-load-more">Load more articles</button>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Stay informed about your rights</h2>
+            <p>Get weekly legal awareness articles delivered to your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfuly!');">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating Elements -->
+    <button class="floating-emergency">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Emergency
+    </button>
+
+    <div class="floating-container">
+        <button class="floating-btn small" id="scrollToTopBtn" aria-label="Scroll to top">
+            <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+        <button class="floating-btn" aria-label="Open chat">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" style="padding-right: 2rem;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem" style="height: 50px; margin-bottom: 1.5rem; opacity: 0.3; filter: invert(1);">
+                    <p>India's first AI-powered Legal First-Response System. Legal aid for every Indian citizen, simplified.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Get Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Consumer Rights</a></li>
+                        <li><a href="#">Workplace Problems</a></li>
+                        <li><a href="#">Police & FIR Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">RTI Generator</a></li>
+                        <li><a href="#">Find a Lawyer</a></li>
+                        <li><a href="#">Know Your Rights</a></li>
+                        <li><a href="https://nalsa.gov.in" target="_blank" rel="noopener noreferrer">NALSA Website ↗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>About</h3>
+                    <p style="margin-bottom: 2rem;">Built at Hack-A-Sprint 2026. Empowering citizens through accessible legal information.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Chitragupt. All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Article Data
+        const featuredArticleData = {
+            category: "Tenant Rights",
+            readTime: "8 min read",
+            title: "Your Complete Guide to Getting Your Security Deposit Back",
+            summary: "Every year, thousands of tenants lose their deposits unfairly. Here is exactly what the law says and what you should do, step by step.",
+            date: "December 15, 2024"
+        };
+
+        const gridArticlesData = [
+            {
+                category: "Police & FIR",
+                readTime: "6 min",
+                title: "Police Refusing to File Your FIR? Here Are 5 Things You Can Do Right Now",
+                summary: "It is illegal for police to refuse an FIR. If they do, you have powerful legal remedies — most people just don't know about them.",
+                date: "Dec 10, 2024"
+            },
+            {
+                category: "Consumer Rights",
+                readTime: "10 min",
+                title: "How to File a Consumer Complaint Online in 2024 (Complete Process)",
+                summary: "You can now file consumer complaints from your phone in under 10 minutes. No lawyer needed. Here is the exact process with...",
+                date: "Dec 8, 2024"
+            },
+            {
+                category: "Workplace",
+                readTime: "7 min",
+                title: "Fired Without Notice? Your Rights as an Employee in India",
+                summary: "Indian labor law requires employers to follow specific procedures before termination. If they didn’t, you may be entitled to...",
+                date: "Dec 5, 2024"
+            },
+            {
+                category: "Cyber Crime",
+                readTime: "5 min",
+                title: "Lost Money to an Online Scam? Act Within 24 Hours for Best Recovery Chances",
+                summary: "The golden window for recovering money lost to cyber fraud is the first 24 hours. Here is the exact sequence of calls and complaints to file.",
+                date: "Dec 1, 2024"
+            },
+            {
+                category: "Property",
+                readTime: "9 min",
+                title: "Builder Not Giving Possession? How to File a RERA Complaint",
+                summary: "RERA gives homebuyers powerful rights against builder delays. Filing a complaint is free in most states and doesn't require a...",
+                date: "Nov 28, 2024"
+            },
+            {
+                category: "Family Law",
+                readTime: "11 min",
+                title: "Understanding the Protection of Women from Domestic Violence Act",
+                summary: "Domestic violence isn't just physical. The law recognizes emotional, verbal, economic, and sexual abuse. Know what protection is...",
+                date: "Nov 25, 2024"
+            },
+            {
+                category: "RTI & Government",
+                readTime: "7 min",
+                title: "RTI for Beginners: How to Get Information from Any Government Office",
+                summary: "The Right to Information Act is one of the most powerful tools citizens have. Filing one costs Rs. 10 and can expose corruption,...",
+                date: "Nov 20, 2024"
+            },
+            {
+                category: "Financial Fraud",
+                readTime: "6 min",
+                title: "Recovery Agents Threatening You? Know the RBI Rules They Are Breaking",
+                summary: "RBI has strict guidelines on loan recovery. Agents cannot call before 8 AM, threaten you, visit your workplace, or contact your family....",
+                date: "Nov 15, 2024"
+            },
+            {
+                category: "Police & FIR",
+                readTime: "8 min",
+                title: "Bail in India: Types, Process, and Your Constitutional Right",
+                summary: "Bail is the rule, jail is the exception. Understanding bail can mean the difference between freedom and unnecessary detention.",
+                date: "Nov 10, 2024"
+            },
+            {
+                category: "Know Your Rights",
+                readTime: "9 min",
+                title: "How to File a Medical Negligence Complaint Against a Hospital or Doctor",
+                summary: "If a hospital's carelessness caused harm, you have the right to compensation. The process starts with the State Medical Council.",
+                date: "Nov 5, 2024"
+            },
+            {
+                category: "Tenant Rights",
+                readTime: "6 min",
+                title: "Can Your Landlord Evict You? Understanding Legal vs Illegal Eviction",
+                summary: "No landlord can throw you out, change locks, or cut utilities without a court order. If they do, it is a criminal offense.",
+                date: "Oct 30, 2024"
+            }
+        ];
+
+        const topics = ["All", "Tenant Rights", "Consumer", "Workplace", "Police & FIR", "Cyber Crime", "Property", "Family Law", "RTI & Government", "Financial", "Know Your Rights"];
+        
+        function renderPills() {
+            const container = document.getElementById('topicPills');
+            topics.forEach((topic, i) => {
+                const btn = document.createElement('button');
+                btn.className = `filter-pill ${i === 0 ? 'active' : ''}`;
+                btn.textContent = topic;
+                container.appendChild(btn);
+            });
+        }
+
+        function renderFeatured() {
+            const container = document.getElementById('featuredArticle');
+            const data = featuredArticleData;
+            
+            container.innerHTML = `
+                <div class="article-card">
+                    <div class="article-card-content">
+                        <div class="article-meta">
+                            <span class="article-category">${data.category}</span>
+                            <span class="article-time">${data.readTime}</span>
+                        </div>
+                        <h2 class="article-title">${data.title}</h2>
+                        <p class="article-summary">${data.summary}</p>
+                    </div>
+                    <div class="article-card-footer">
+                        <span class="article-date">${data.date}</span>
+                        <span class="featured-read-btn">
+                            Read Article 
+                            <svg class="article-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('articlesGrid');
+            
+            gridArticlesData.forEach((data, index) => {
+                const card = document.createElement('div');
+                card.className = 'article-card';
+                // Stagger columns for cool load effect
+                card.style.transitionDelay = `${(index % 3) * 80}ms`;
+                
+                card.innerHTML = `
+                    <div class="article-card-content">
+                        <div class="article-meta">
+                            <span class="article-category">${data.category}</span>
+                            <span class="article-time">${data.readTime}</span>
+                        </div>
+                        <h3 class="article-title">${data.title}</h3>
+                        <p class="article-summary">${data.summary}</p>
+                    </div>
+                    <div class="article-card-footer">
+                        <span class="article-date">${data.date}</span>
+                        <svg class="article-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-up');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px' 
+            });
+
+            document.querySelectorAll('.article-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Navbar shadow and scroll-to-top button logic
+            const navbar = document.getElementById('navbar');
+            const toTopBtn = document.getElementById('scrollToTopBtn');
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const closeBtn = document.getElementById('drawerCloseBtn');
+            const drawer = document.getElementById('mobileDrawer');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                if (window.scrollY > 300) {
+                    toTopBtn.classList.add('visible');
+                } else {
+                    toTopBtn.classList.remove('visible');
+                }
+            });
+
+            toTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            mobileBtn.addEventListener('click', () => {
+                drawer.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                drawer.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPills();
+            renderFeatured();
+            renderGrid();
+            
+            setTimeout(() => {
+                setupScrollAnimations();
+            }, 50);
+        });
+    </script>
+</body>
+</html>

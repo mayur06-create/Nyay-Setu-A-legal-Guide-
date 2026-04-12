@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Guide | Nyay Setu</title>
+    <title>News | Nyay Setu</title>
     <meta name="description" content="Plain-language articles on your rights, legal processes, and how to protect yourself.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -813,6 +813,233 @@
             background-color: var(--primary-hover);
         }
         
+        /* News Specific Styles */
+        .news-header {
+            text-align: center;
+            padding: 5rem 20px 2rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+        .news-header h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .news-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .news-last-updated {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .news-cards-top {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin: 3rem 0;
+        }
+        @media (min-width: 768px) {
+            .news-cards-top {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .news-card-simple {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-card-simple .meta {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        .news-card-simple h3 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .news-card-simple .card-footer {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .scam-section {
+            margin-bottom: 3rem;
+            padding-top: 1rem;
+        }
+        .scam-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #8C6A5D;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .scam-banner {
+            background-color: var(--primary-hover);
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .scam-banner {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+        .scam-banner-content {
+            flex-grow: 1;
+        }
+        .scam-banner-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+        .scam-banner-content p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 400;
+        }
+        .scam-banner-btn {
+            background-color: var(--btn-cream);
+            color: #4B1E26;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+        .scam-banner-btn:hover {
+            background-color: #DBC3A4;
+        }
+
+        .news-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .news-tab {
+            padding: 1rem 0;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .news-tab:hover, .news-tab.active {
+            color: var(--primary-accent);
+            border-bottom-color: var(--primary-accent);
+        }
+
+        .news-list {
+            margin-bottom: 4rem;
+        }
+        .news-list-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 2.5rem 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-list-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        .news-list-meta .category {
+            color: var(--primary-accent);
+        }
+        .news-list-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+        .news-list-desc {
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+        }
+        .news-list-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 1rem;
+        }
+        .news-list-source span {
+            color: var(--primary-accent);
+            font-weight: 700;
+        }
+        .news-list-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: transform 0.2s;
+        }
+        .news-list-link:hover {
+            transform: translateX(4px);
+        }
+        .news-list-link svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5;
+        }
     </style>
 </head>
 <body>
@@ -827,9 +1054,9 @@
                 
                 <div class="nav-links">
                     <a href="#">Explore Issues</a>
-                    <a href="index.html" class="active">Guide</a>
+                    <a href="index.html">Guide</a>
                     <a href="directory.html">Directory</a>
-                    <a href="news.html">News</a>
+                    <a href="news.html" class="active">News</a>
                     <a href="#">RTI Generator</a>
                     <a href="#">AI Analysis</a>
                 </div>
@@ -865,65 +1092,116 @@
         <button class="drawer-close" id="drawerCloseBtn">✕</button>
     </div>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <h1>Don't panic.<br><span>Tell me what happened.</span></h1>
-            <p>Describe your situation in plain language. Get your legal rights, a clear action plan, and necessary documents in 60 seconds.</p>
-            
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" placeholder="E.g., My employer is withholding my salary...">
-                    <button class="btn-search">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </button>
-                </div>
+        <!-- Main News Section -->
+    <main class="container" style="padding-bottom: 6rem;">
+        
+        <!-- Header -->
+        <header class="news-header">
+            <h1>Legal News & Alerts</h1>
+            <p>Stay aware. Scam alerts, landmark cases, policy changes, and what they mean for you.</p>
+            <div class="news-last-updated">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                LAST UPDATED: 10:36:04 PM
             </div>
+        </header>
 
-            <div class="pills-container">
-                <div class="pills-scroll">
-                    <button class="filter-pill">Salary Not Paid</button>
-                    <button class="filter-pill">Defective Product</button>
-                    <button class="filter-pill">FIR Refusal</button>
-                    <button class="filter-pill">Builder Delay</button>
-                    <button class="filter-pill">Social Media Harassment</button>
-                    <button class="filter-pill">Domestic Violence</button>
-                </div>
+        <!-- Top Cards -->
+        <div class="news-cards-top">
+            <div class="news-card-simple">
+                <div class="meta">SCAM ALERTS</div>
+                <h3>Why your UPI payments will feel different from April 2026 - ET Edge Insights</h3>
+                <div class="card-footer">NEWS SOURCE • MARCH 31, 2026</div>
             </div>
-            
-            <div class="hero-actions">
-                <button class="btn-large btn-primary">EXPLORE YOUR RIGHTS</button>
-                <button class="btn-large btn-outline">ANALYZE MY CASE</button>
+            <div class="news-card-simple">
+                <div class="meta">SCAM ALERTS</div>
+                <h3>UPI fraud is surging. Here's how fintechs and regulators are fighting back - MSN</h3>
+                <div class="card-footer">NEWS SOURCE • MARCH 28, 2026</div>
+            </div>
+            <div class="news-card-simple">
+                <div class="meta">SCAM ALERTS</div>
+                <h3>LPG Cylinder Scam India 2026: Fake Bharat Gas, Indane, HP Gas Links, APK Malware & UPI Fraud | TraceX...</h3>
+                <div class="card-footer">NEWS SOURCE • MARCH 21, 2026</div>
             </div>
         </div>
-    </header>
 
-    <!-- Articles Section -->
-    <section class="articles-section">
-        <div class="container">
+        <!-- Scam Banners -->
+        <div class="scam-section">
+            <div class="scam-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                ACTIVE SCAM ALERTS
+            </div>
             
-            <!-- Featured Article -->
-            <div class="featured-article" id="featuredArticle">
-                <!-- Rendered by JS -->
+            <div class="scam-banner">
+                <div class="scam-banner-content">
+                    <h3>Why your UPI payments will feel different from April 2026 - ET Edge Insights</h3>
+                    <p>New interoperability guidelines from NPCI will change how your UPI apps function. Find out what you need to do to avoid transaction failures.</p>
+                </div>
+                <button class="scam-banner-btn">READ ADVISORY</button>
             </div>
-
-            <!-- Grid Articles -->
-            <div class="articles-grid" id="articlesGrid">
-                <!-- Rendered by JS -->
+            <div class="scam-banner">
+                <div class="scam-banner-content">
+                    <h3>UPI fraud is surging. Here's how fintechs and regulators are fighting back - MSN</h3>
+                    <p>Discover the latest security measures and AI-driven fraud detection systems being rolled out to protect your hard-earned money.</p>
+                </div>
+                <button class="scam-banner-btn">READ ADVISORY</button>
             </div>
-
+            <div class="scam-banner">
+                <div class="scam-banner-content">
+                    <h3>LPG Cylinder Scam India 2026: Fake Bharat Gas, Indane, HP Gas Links, APK Malware & UPI Fraud | TraceX Labs - First India</h3>
+                    <p>Scammers are sending malicious APK files via WhatsApp disguised as official gas booking links. Do not install unknown apps to avoid device compromise.</p>
+                </div>
+                <button class="scam-banner-btn">READ ADVISORY</button>
+            </div>
         </div>
-    </section>
 
-    <!-- Load More Section -->
-    <div class="load-more-section">
-        <button class="btn-load-more">Load more articles</button>
-    </div>
+        <!-- Tabs -->
+        <div class="news-tabs">
+            <div class="news-tab active">ALL</div>
+            <div class="news-tab">SCAM ALERTS</div>
+            <div class="news-tab">COURT DECISIONS</div>
+            <div class="news-tab">POLICY CHANGES</div>
+            <div class="news-tab">CONSUMER WARNINGS</div>
+            <div class="news-tab">AWARENESS</div>
+            <div class="news-tab">CRIME & SAFETY</div>
+        </div>
 
-    <!-- Newsletter Section -->
+        <!-- List -->
+        <div class="news-list">
+            <div class="news-list-item">
+                <div class="news-list-meta">
+                    <span class="category">SCAM ALERTS</span>
+                    <span>MARCH 31, 2026</span>
+                </div>
+                <h3 class="news-list-title">Why your UPI payments will feel different from April 2026 - ET Edge Insights</h3>
+                <p class="news-list-desc">Why your UPI payments will feel different from April 2026 ET Edge Insights</p>
+                <div class="news-list-footer">
+                    <div class="news-list-source">Source: <span>News Source</span></div>
+                    <a href="#" class="news-list-link">
+                        ORIGINAL ARTICLE 
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="news-list-item">
+                <div class="news-list-meta">
+                    <span class="category">SCAM ALERTS</span>
+                    <span>MARCH 28, 2026</span>
+                </div>
+                <h3 class="news-list-title">UPI fraud is surging. Here's how fintechs and regulators are fighting back - MSN</h3>
+                <p class="news-list-desc">UPI fraud is surging. Here's how fintechs and regulators are fighting back MSN</p>
+                <div class="news-list-footer">
+                    <div class="news-list-source">Source: <span>News Source</span></div>
+                    <a href="#" class="news-list-link">
+                        ORIGINAL ARTICLE 
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+<!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="container">
             <h2>Stay informed about your rights</h2>
@@ -1192,11 +1470,11 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderFeatured();
-            renderGrid();
+            // renderFeatured();
+            // renderGrid();
             
             setTimeout(() => {
-                setupScrollAnimations();
+                setTimeout(() => { if(document.querySelector('.article-card')) setupScrollAnimations(); }, 50);
             }, 50);
         });
     </script>

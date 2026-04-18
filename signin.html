@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Nyay Setu</title>
+    <meta name="description"
+        content="Sign in to your Nyay Setu account.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-accent);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-hover);
+        }
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-accent) var(--bg-color);
+        }
+
+        /* CSS Variables / Light Theme */
+        :root {
+            --bg-color: #FAF8F4;
+            --card-bg: #FFFFFF;
+            --primary-accent: #61212B;
+            /* Burgundy */
+            --primary-hover: #4A1525;
+            --secondary-bg: #4F2027;
+            /* Darker Burgundy for Newsletter */
+            --btn-cream: #EBDAC2;
+            /* Cream/Gold button */
+            --text-primary: #2C2A29;
+            --text-secondary: #7A7571;
+            --border-color: #E5E0D8;
+            --footer-bg: #291E1E;
+            --footer-text: #D5CCC9;
+            --footer-heading: #9B8B88;
+
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+
+            --border-radius-sm: 4px;
+            --border-radius-card: 6px;
+            --border-radius-pill: 999px;
+            --transition-speed: 0.3s;
+        }
+
+        /* Basic Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        select,
+        input {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+            color: inherit;
+            outline: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 0;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .navbar-left,
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar-left {
+            gap: 2rem;
+        }
+
+        .navbar-right {
+            gap: 1.5rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-actions {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                height: 100%;
+                align-items: center;
+            }
+
+            .nav-links a {
+                display: inline-block;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--text-secondary);
+                padding: 0 0 6px 0;
+                margin: 0 1.1rem;
+                position: relative;
+                transition: color var(--transition-speed);
+            }
+
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: transparent;
+                transition: background-color var(--transition-speed);
+            }
+
+            .nav-links a:hover {
+                color: var(--primary-accent);
+            }
+
+            .nav-links a.active {
+                color: var(--primary-accent);
+            }
+
+            .nav-links a.active::after {
+                background-color: var(--primary-accent);
+            }
+
+            .nav-actions {
+                display: flex;
+            }
+        }
+
+        /* Lang Toggle */
+        .lang-toggle {
+            display: flex;
+            border: 1px solid var(--primary-accent);
+            border-radius: 2px;
+            overflow: hidden;
+            height: 38px;
+        }
+
+        .lang-toggle button {
+            padding: 0 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+        }
+
+        .lang-toggle button:first-child {
+            border-right: 1px solid var(--primary-accent);
+        }
+
+        .lang-toggle .active {
+            background-color: var(--primary-accent);
+            color: white;
+        }
+
+        .lang-toggle .inactive {
+            background-color: transparent;
+            color: var(--primary-accent);
+        }
+        .lang-toggle .inactive:hover {
+            background-color: rgba(97, 33, 43, 0.05);
+        }
+
+        /* Nav Buttons */
+        .btn-signin {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color var(--transition-speed);
+        }
+        .btn-signin:hover {
+            color: var(--primary-hover);
+        }
+
+        .btn-emergency {
+            background-color: var(--primary-accent);
+            color: white;
+            padding: 0 1.25rem;
+            height: 38px;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-emergency:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            transition: color var(--transition-speed);
+        }
+        .btn-menu:hover {
+            color: var(--primary-accent);
+        }
+
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger-icon span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background-color: var(--text-primary);
+            transition: background-color var(--transition-speed);
+        }
+        .btn-menu:hover .hamburger-icon span {
+            background-color: var(--primary-accent);
+        }
+
+        /* Floating Emergency */
+        .floating-emergency {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--primary-accent);
+            color: white;
+            padding: 0.85rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+        }
+
+        .floating-emergency:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-hover);
+        }
+        
+        .floating-btn-msg {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+            z-index: 1000;
+        }
+        .floating-btn-msg:hover {
+            transform: scale(1.08);
+            background-color: var(--primary-hover);
+        }
+        .floating-btn-msg svg {
+            width: 26px;
+            height: 26px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* Sign In Page Specifics */
+        .signin-main {
+            position: relative;
+            min-height: calc(100vh - 90px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 20px 6rem;
+            background-color: var(--bg-color);
+            overflow: hidden;
+        }
+
+        .bg-circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.035);
+        }
+        .bg-circle-1 {
+            width: 2000px;
+            height: 2000px;
+            top: -1000px;
+            left: -800px;
+        }
+        .bg-circle-2 {
+            width: 2500px;
+            height: 2500px;
+            bottom: -1500px;
+            right: -1000px;
+        }
+        .bg-circle-3 {
+            width: 1500px;
+            height: 1500px;
+            top: -300px;
+            right: -600px;
+        }
+
+        .login-card {
+            background-color: #FFFFFF;
+            border-radius: 28px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 3.5rem 3rem 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .login-title {
+            font-family: var(--font-heading);
+            color: var(--primary-accent);
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .input-icon.left {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #928C84;
+            display: flex;
+        }
+        .input-icon.right {
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #928C84;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .input-styled {
+            width: 100%;
+            padding: 1.1rem 3rem;
+            border: 1px solid #E6E1D6;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background-color: transparent;
+            transition: border-color var(--transition-speed);
+        }
+
+        .input-styled::placeholder {
+            color: #A09B96;
+        }
+
+        .input-styled:focus {
+            border-color: var(--primary-accent);
+            outline: none;
+        }
+
+        .forgot-pwd {
+            display: block;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: underline;
+            text-decoration-color: #C5C0B6;
+            text-underline-offset: 3px;
+            margin-bottom: 2rem;
+            transition: color var(--transition-speed);
+        }
+        .forgot-pwd:hover {
+            color: var(--primary-accent);
+            text-decoration-color: var(--primary-accent);
+        }
+
+        .btn-login-submit {
+            width: 100%;
+            padding: 1.15rem;
+            border-radius: 999px;
+            background-color: #1A2118;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+        }
+        .btn-login-submit:hover {
+            background-color: #0F140E;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            color: #A09B96;
+            font-size: 0.85rem;
+        }
+        .separator::before, .separator::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #EAE5DB;
+        }
+        .separator span {
+            padding: 0 1rem;
+        }
+
+        .btn-social {
+            width: 100%;
+            padding: 1.15rem;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: filter var(--transition-speed), transform var(--transition-speed);
+        }
+        .btn-social:hover {
+            filter: brightness(0.96);
+            transform: translateY(-1px);
+        }
+
+        .btn-google {
+            background-color: #F4EFE9;
+            color: var(--text-primary);
+        }
+        .btn-apple {
+            background-color: #A5E09F;
+            color: #1A2118;
+        }
+        .btn-guest {
+            background-color: #F4EFE9;
+            color: var(--text-primary);
+            margin-bottom: 2.5rem;
+        }
+
+        .signup-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .signup-text span {
+            font-weight: 700;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: color var(--transition-speed);
+        }
+        .signup-text span:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer overrides */
+        .footer {
+            background-color: var(--footer-bg);
+            padding: 5rem 0 2rem;
+            color: var(--footer-text);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-col h3 {
+            color: var(--footer-heading);
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--footer-text);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity var(--transition-speed), color var(--transition-speed);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        /* ANTIGRAVITY EFFECTS */
+        
+
+        /* General button antigravity */
+        button, a.btn-primary, a.btn-outline, a.btn-load-more, a.btn-emergency, a.btn-signin, .floating-btn, .filter-pill, .btn-search, .btn-subscribe, .lang-toggle button, .hero-actions a, .featured-read-btn {
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        button:hover, a.btn-primary:hover, a.btn-outline:hover, a.btn-load-more:hover, a.btn-emergency:hover, a.btn-signin:hover, .floating-btn:hover, .filter-pill:hover, .btn-search:hover, .btn-subscribe:hover, .lang-toggle button:hover, .hero-actions a:hover, .featured-read-btn:hover {
+            transform: translateY(-6px) scale(1.04) !important;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+        }
+
+        button:active, a.btn-primary:active, a.btn-outline:active, a.btn-load-more:active, a.btn-emergency:active, a.btn-signin:active, .floating-btn:active, .filter-pill:active, .btn-search:active, .btn-subscribe:active, .lang-toggle button:active, .hero-actions a:active, .featured-read-btn:active {
+            transform: translateY(2px) scale(0.97) !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+        }
+
+        /* Floating entrance container definitions */
+        .antigravity-float {
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+
+        .antigravity-float-active {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Ripple animation */
+        .ag-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--primary-accent, #61212B);
+            transform: scale(0);
+            animation: ripple-effect 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+        @keyframes ripple-effect {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Touch friendly minimum tap sizes */
+        @media (max-pointer: coarse) {
+            button, a.btn-primary, a.btn-outline, a.btn-load-more, a.btn-emergency, a.btn-signin, .floating-btn, .filter-pill, .btn-search, .btn-subscribe, .nav-links a {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <div class="logo-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+                        alt="Emblem of India" class="logo">
+                </div>
+
+                <div class="nav-links">
+                    <a href="explore.html">Explore Issues</a>
+                    <a href="index.html">Guide</a>
+                    <a href="directory.html">Directory</a>
+                    <a href="news.html">News</a>
+                    <a href="rti.html">RTI Generator</a>
+                    <a href="analysis.html">AI Analysis</a>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <div class="nav-actions">
+                    <div class="lang-toggle">
+                        <button class="active">EN</button>
+                        <button class="inactive">हिं</button>
+                    </div>
+                    <button class="btn-signin" onclick="window.location.href='signin.html'">SIGN IN</button>
+                    <button class="btn-emergency">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        EMERGENCY
+                    </button>
+                </div>
+
+                <button class="btn-menu" id="mobileMenuBtn">
+                    <div class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    MENU
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Sign In Section -->
+    <main class="signin-main">
+        <!-- Background Decor -->
+        <div class="bg-circles">
+            <div class="bg-circle bg-circle-1"></div>
+            <div class="bg-circle bg-circle-2"></div>
+            <div class="bg-circle bg-circle-3"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 10;">
+            <div class="login-card">
+                <h1 class="login-title">Login</h1>
+                
+                <form onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <div class="input-icon left">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <input type="email" class="input-styled" placeholder="Email" required />
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-icon left">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <input type="password" class="input-styled" placeholder="Password" required />
+                        <div class="input-icon right" aria-label="Toggle password visibility">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <a href="#" class="forgot-pwd">Forgot Password?</a>
+                    
+                    <button type="submit" class="btn-login-submit">Login</button>
+                </form>
+
+                <div class="separator"><span>or</span></div>
+
+                <button class="btn-social btn-google">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    Continue with Google
+                </button>
+                
+                <button class="btn-social btn-apple">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="black">
+                        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.78 1.18-.19 2.24-.86 3.43-.88 1.52-.03 2.82.5 3.51 1.5-3.14 1.94-2.6 6.07.28 7.27a11.96 11.96 0 0 1-2.3 4.3zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    Continue with Apple
+                </button>
+
+                <button class="btn-social btn-guest">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Continue As Guest
+                </button>
+
+                <p class="signup-text">Need an account? <span>Sign up</span></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Buttons -->
+    <button class="floating-emergency">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        Emergency
+    </button>
+    <button class="floating-btn-msg" aria-label="Open chat">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" style="padding-right: 2rem;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem"
+                        style="height: 50px; margin-bottom: 1.5rem; opacity: 0.3; filter: invert(1);">
+                    <p>India's first AI-powered Legal First-Response System. Legal aid for every Indian citizen,
+                        simplified.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Get Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Consumer Rights</a></li>
+                        <li><a href="#">Workplace Problems</a></li>
+                        <li><a href="#">Police & FIR Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="rti.html">RTI Generator</a></li>
+                        <li><a href="#">Find a Lawyer</a></li>
+                        <li><a href="#">Know Your Rights</a></li>
+                        <li><a href="https://nalsa.gov.in" target="_blank" rel="noopener noreferrer">NALSA Website ↗</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>About</h3>
+                    <p style="margin-bottom: 2rem;">Built by Mayur Sharma 2026. Empowering citizens through accessible
+                        legal information.</p>
+                        <p style="font-size: 0.75rem; opacity: 0.5;">Powered by Gemini AI + Sarvam AI</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 NyaySetu. All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Toggle Smooth Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const langContainer = document.querySelector('.lang-toggle');
+            if (langContainer) {
+                const langBtns = langContainer.querySelectorAll('button');
+                langBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        langBtns.forEach(b => {
+                            b.classList.remove('active');
+                            b.classList.add('inactive');
+                        });
+                        e.target.classList.remove('inactive');
+                        e.target.classList.add('active');
+                    });
+                });
+            }
+        });
+    </script>
+
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Lenis Smooth Scroll Setup
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease-out cubic-like curve
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                smoothTouch: false,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+        }
+
+        // 2. Floating Entrance Animations
+        const agObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const agObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('antigravity-float-active');
+                    }, entry.target.dataset.agDelay || 0);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, agObserverOptions);
+
+        // Find elements to animate
+        const elementsToFloat = document.querySelectorAll('.article-card, .footer-col, .hero, .search-container, .pills-container, .newsletter-section, .dashboard-card, .main-content > div');
+        
+        elementsToFloat.forEach((el, index) => {
+            el.classList.remove('animate-up'); // override old animations
+            el.classList.add('antigravity-float');
+            // Stagger siblings based on order (100ms - 150ms roughly)
+            const staggerDelay = (index % 5) * 120;
+            el.dataset.agDelay = staggerDelay;
+            agObserver.observe(el);
+        });
+
+        // 3. Cursor / Tap Ripple Event Delegation
+        document.body.addEventListener('pointerdown', function (e) {
+            const target = e.target.closest('button, a.btn-primary, a.btn-outline, a.btn-load-more, a.btn-emergency, a.btn-signin, .floating-btn, .filter-pill, .btn-search, .btn-subscribe, .hero-actions a');
+            
+            if (target) {
+                const rect = target.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const size = Math.max(rect.width, rect.height);
+                
+                const ripple = document.createElement('span');
+                ripple.classList.add('ag-ripple');
+                
+                ripple.style.width = `${size}px`;
+                ripple.style.height = `${size}px`;
+                ripple.style.left = `${x - size/2}px`;
+                ripple.style.top = `${y - size/2}px`;
+                
+                if (target.classList.contains('btn-primary') || target.classList.contains('btn-search') || target.classList.contains('btn-emergency') || target.classList.contains('floating-btn')) {
+                    ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+                }
+
+                const compStyle = window.getComputedStyle(target);
+                if (compStyle.position === 'static') {
+                    target.style.position = 'relative';
+                }
+
+                target.appendChild(ripple);
+                setTimeout(() => {
+                    ripple.remove();
+                }, 500);
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

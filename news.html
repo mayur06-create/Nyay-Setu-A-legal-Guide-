@@ -10,6 +10,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-accent);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-hover);
+        }
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-accent) var(--bg-color);
+        }
+
         /* CSS Variables / Light Theme */
         :root {
             --bg-color: #FAF8F4;
@@ -48,7 +67,6 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         a {
@@ -1040,6 +1058,68 @@
             height: 20px;
             stroke-width: 2.5;
         }
+    
+        /* ANTIGRAVITY EFFECTS */
+        
+
+        /* General button antigravity */
+        button, a.btn-primary, a.btn-outline, a.btn-load-more, a.btn-emergency, a.btn-signin, .floating-btn, .filter-pill, .btn-search, .btn-subscribe, .lang-toggle button, .hero-actions a, .featured-read-btn {
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        button:hover, a.btn-primary:hover, a.btn-outline:hover, a.btn-load-more:hover, a.btn-emergency:hover, a.btn-signin:hover, .floating-btn:hover, .filter-pill:hover, .btn-search:hover, .btn-subscribe:hover, .lang-toggle button:hover, .hero-actions a:hover, .featured-read-btn:hover {
+            transform: translateY(-6px) scale(1.04) !important;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+        }
+
+        button:active, a.btn-primary:active, a.btn-outline:active, a.btn-load-more:active, a.btn-emergency:active, a.btn-signin:active, .floating-btn:active, .filter-pill:active, .btn-search:active, .btn-subscribe:active, .lang-toggle button:active, .hero-actions a:active, .featured-read-btn:active {
+            transform: translateY(2px) scale(0.97) !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+        }
+
+        /* Floating entrance container definitions */
+        .antigravity-float {
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+
+        .antigravity-float-active {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Ripple animation */
+        .ag-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--primary-accent, #61212B);
+            transform: scale(0);
+            animation: ripple-effect 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+        @keyframes ripple-effect {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Touch friendly minimum tap sizes */
+        @media (max-pointer: coarse) {
+            button, a.btn-primary, a.btn-outline, a.btn-load-more, a.btn-emergency, a.btn-signin, .floating-btn, .filter-pill, .btn-search, .btn-subscribe, .nav-links a {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1053,7 +1133,7 @@
                 </div>
                 
                 <div class="nav-links">
-                    <a href="#">Explore Issues</a>
+                    <a href="explore.html">Explore Issues</a>
                     <a href="index.html">Guide</a>
                     <a href="directory.html">Directory</a>
                     <a href="news.html" class="active">News</a>
@@ -1087,10 +1167,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-        <button class="drawer-close" id="drawerCloseBtn">✕</button>
-    </div>
+
 
         <!-- Main News Section -->
     <main class="container" style="padding-bottom: 6rem;">
@@ -1458,15 +1535,19 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            mobileBtn.addEventListener('click', () => {
-                drawer.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
+            if (mobileBtn && drawer) {
+                mobileBtn.addEventListener('click', () => {
+                    drawer.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
 
-            closeBtn.addEventListener('click', () => {
-                drawer.classList.remove('open');
-                document.body.style.overflow = '';
-            });
+            if (closeBtn && drawer) {
+                closeBtn.addEventListener('click', () => {
+                    drawer.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1478,5 +1559,95 @@
             }, 50);
         });
     </script>
+
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Lenis Smooth Scroll Setup
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease-out cubic-like curve
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                smoothTouch: false,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+        }
+
+        // 2. Floating Entrance Animations
+        const agObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const agObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('antigravity-float-active');
+                    }, entry.target.dataset.agDelay || 0);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, agObserverOptions);
+
+        // Find elements to animate
+        const elementsToFloat = document.querySelectorAll('.article-card, .footer-col, .hero, .search-container, .pills-container, .newsletter-section, .dashboard-card, .main-content > div');
+        
+        elementsToFloat.forEach((el, index) => {
+            el.classList.remove('animate-up'); // override old animations
+            el.classList.add('antigravity-float');
+            // Stagger siblings based on order (100ms - 150ms roughly)
+            const staggerDelay = (index % 5) * 120;
+            el.dataset.agDelay = staggerDelay;
+            agObserver.observe(el);
+        });
+
+        // 3. Cursor / Tap Ripple Event Delegation
+        document.body.addEventListener('pointerdown', function (e) {
+            const target = e.target.closest('button, a.btn-primary, a.btn-outline, a.btn-load-more, a.btn-emergency, a.btn-signin, .floating-btn, .filter-pill, .btn-search, .btn-subscribe, .hero-actions a');
+            
+            if (target) {
+                const rect = target.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const size = Math.max(rect.width, rect.height);
+                
+                const ripple = document.createElement('span');
+                ripple.classList.add('ag-ripple');
+                
+                ripple.style.width = `${size}px`;
+                ripple.style.height = `${size}px`;
+                ripple.style.left = `${x - size/2}px`;
+                ripple.style.top = `${y - size/2}px`;
+                
+                if (target.classList.contains('btn-primary') || target.classList.contains('btn-search') || target.classList.contains('btn-emergency') || target.classList.contains('floating-btn')) {
+                    ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+                }
+
+                const compStyle = window.getComputedStyle(target);
+                if (compStyle.position === 'static') {
+                    target.style.position = 'relative';
+                }
+
+                target.appendChild(ripple);
+                setTimeout(() => {
+                    ripple.remove();
+                }, 500);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

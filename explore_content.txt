@@ -1,0 +1,272 @@
+    <!-- Explore Main -->
+    <main class="container">
+        <!-- Explore Header -->
+        <section class="explore-header">
+            <h1>What's your situation?</h1>
+            <p>Choose a category to understand your rights, read the law in plain English, and find step-by-step action plans.</p>
+        </section>
+
+        <!-- Explore Grid -->
+        <div class="explore-grid" id="exploreGrid">
+            
+            <!-- Card 1 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Consumer Rights</h3>
+                <p class="explore-card-desc">Protect yourself against defective products and fraud.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Defective product</li>
+                    <li>Refund denied</li>
+                    <li>Misleading ads</li>
+                    <li>Service complaint</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Workplace & Employment</h3>
+                <p class="explore-card-desc">Rights related to salary, termination, and workplace environment.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Salary unpaid</li>
+                    <li>Wrongful termination</li>
+                    <li>Harassment at work</li>
+                    <li>PF/ESI not deposited</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <rect x="8" y="11" width="8" height="6" rx="1"></rect>
+                        <path d="M10 11V9a2 2 0 0 1 4 0v2"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Police & FIR</h3>
+                <p class="explore-card-desc">Guidelines on police procedures, FIRs, and bail.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Refusal to file FIR</li>
+                    <li>False FIR against you</li>
+                    <li>Custody rights</li>
+                    <li>Bail information</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Property & Real Estate</h3>
+                <p class="explore-card-desc">Disputes involving property ownership, builders, and RERA.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Builder delay</li>
+                    <li>Possession not given</li>
+                    <li>Property fraud</li>
+                    <li>Encroachment</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Family & Matrimonial</h3>
+                <p class="explore-card-desc">Laws regarding marriage, divorce, and domestic issues.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Divorce process</li>
+                    <li>Domestic violence</li>
+                    <li>Child custody</li>
+                    <li>Alimony / Maintenance</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 6 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Cyber Crime & Online Fraud</h3>
+                <p class="explore-card-desc">Recourse for online scams, hacking, and digital harassment.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Online scam</li>
+                    <li>Identity theft</li>
+                    <li>Social media harassment</li>
+                    <li>Data privacy</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 7 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Medical Negligence</h3>
+                <p class="explore-card-desc">Complaints against improper medical treatment and hospital disputes.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Wrong treatment</li>
+                    <li>Surgery gone wrong</li>
+                    <li>Overcharging by hospital</li>
+                    <li>Denied treatment</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 8 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12" y2="22"></line>
+                        <line x1="8" y1="6" x2="8" y2="6.01"></line>
+                        <line x1="16" y1="6" x2="16" y2="6.01"></line>
+                        <line x1="8" y1="10" x2="8" y2="10.01"></line>
+                        <line x1="16" y1="10" x2="16" y2="10.01"></line>
+                        <line x1="8" y1="14" x2="8" y2="14.01"></line>
+                        <line x1="16" y1="14" x2="16" y2="14.01"></line>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Banking & Financial Fraud</h3>
+                <p class="explore-card-desc">Issues with loans, credit cards, and banking institutions.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Loan harassment</li>
+                    <li>Unauthorized transactions</li>
+                    <li>Credit card fraud</li>
+                    <li>Recovery agent threats</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 9 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Government & Public Services</h3>
+                <p class="explore-card-desc">Dealing with government offices, RTI, and public schemes.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Passport delays</li>
+                    <li>Pension not received</li>
+                    <li>Corruption complaint</li>
+                    <li>RTI follow-up</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 10 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Education & Student Rights</h3>
+                <p class="explore-card-desc">Protection for students against unfair institutional practices.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Fee refund</li>
+                    <li>Ragging</li>
+                    <li>Unfair grading</li>
+                    <li>Admission fraud</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Card 11 -->
+            <a href="#" class="explore-card">
+                <div class="explore-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="10" width="20" height="8" rx="2" ry="2"></rect>
+                        <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path>
+                        <line x1="8" y1="14" x2="8.01" y2="14"></line>
+                        <line x1="16" y1="14" x2="16.01" y2="14"></line>
+                    </svg>
+                </div>
+                <h3 class="explore-card-title">Traffic & Motor Vehicle</h3>
+                <p class="explore-card-desc">Handling challans, accidents, and insurance claims.</p>
+                <div class="common-issues-label">COMMON ISSUES:</div>
+                <ul>
+                    <li>Challan disputes</li>
+                    <li>Accident claim</li>
+                    <li>Insurance not paid</li>
+                    <li>Towing complaints</li>
+                </ul>
+                <div class="explore-card-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- AI Prompt Section -->
+    <section class="ai-prompt-section">
+        <h2>Not sure where to start?</h2>
+        <p>Describe your problem in your own words. Our AI will analyze your situation and point you strictly to the right laws and next steps.</p>
+        <button class="btn-ai-prompt">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z"></path></svg>
+            DESCRIBE YOUR PROBLEM TO AI
+        </button>
+    </section>

@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Guide | Nyay Setu</title>
-    <meta name="description" content="Plain-language articles on your rights, legal processes, and how to protect yourself.">
+    <meta name="description"
+        content="Plain-language articles on your rights, legal processes, and how to protect yourself.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-accent);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-hover);
+        }
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-accent) var(--bg-color);
+        }
+
         /* CSS Variables / Light Theme */
         :root {
             --bg-color: #FAF8F4;
             --card-bg: #FFFFFF;
-            --primary-accent: #61212B; /* Burgundy */
+            --primary-accent: #61212B;
+            /* Burgundy */
             --primary-hover: #4A1525;
-            --secondary-bg: #4F2027; /* Darker Burgundy for Newsletter */
-            --btn-cream: #EBDAC2; /* Cream/Gold button */
+            --secondary-bg: #4F2027;
+            /* Darker Burgundy for Newsletter */
+            --btn-cream: #EBDAC2;
+            /* Cream/Gold button */
             --text-primary: #2C2A29;
             --text-secondary: #7A7571;
             --border-color: #E5E0D8;
             --footer-bg: #291E1E;
             --footer-text: #D5CCC9;
             --footer-heading: #9B8B88;
-            
+
             --font-body: 'Inter', sans-serif;
             --font-heading: 'Playfair Display', serif;
-            
+
             --border-radius-sm: 4px;
             --border-radius-card: 6px;
             --border-radius-pill: 999px;
@@ -35,7 +61,9 @@
         }
 
         /* Basic Reset */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -48,7 +76,6 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         a {
@@ -56,7 +83,9 @@
             text-decoration: none;
         }
 
-        button, select, input {
+        button,
+        select,
+        input {
             cursor: pointer;
             font-family: inherit;
             border: none;
@@ -84,7 +113,7 @@
         }
 
         .navbar.scrolled {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .navbar .container {
@@ -94,7 +123,8 @@
             height: 90px;
         }
 
-        .navbar-left, .navbar-right {
+        .navbar-left,
+        .navbar-right {
             display: flex;
             align-items: center;
             height: 100%;
@@ -135,6 +165,7 @@
                 display: flex;
                 height: 100%;
             }
+
             .nav-links a {
                 display: flex;
                 align-items: center;
@@ -148,13 +179,16 @@
                 border-bottom: 3px solid transparent;
                 transition: color var(--transition-speed), border-color var(--transition-speed);
             }
+
             .nav-links a:hover {
                 color: var(--primary-accent);
             }
+
             .nav-links a.active {
                 color: var(--primary-accent);
                 border-bottom-color: var(--primary-accent);
             }
+
             .nav-actions {
                 display: flex;
             }
@@ -168,16 +202,19 @@
             overflow: hidden;
             height: 36px;
         }
+
         .lang-toggle button {
             padding: 0 0.75rem;
             font-size: 0.8rem;
             font-weight: 600;
             transition: background-color 0.2s, color 0.2s;
         }
+
         .lang-toggle .active {
             background-color: var(--primary-accent);
             color: white;
         }
+
         .lang-toggle .inactive {
             background-color: var(--card-bg);
             color: var(--text-primary);
@@ -207,6 +244,7 @@
             gap: 0.5rem;
             transition: background-color var(--transition-speed);
         }
+
         .btn-emergency:hover {
             background-color: var(--primary-hover);
         }
@@ -221,11 +259,13 @@
             letter-spacing: 0.05em;
             color: var(--text-primary);
         }
+
         .hamburger-icon {
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
+
         .hamburger-icon span {
             display: block;
             width: 20px;
@@ -263,8 +303,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
@@ -304,12 +351,12 @@
             border: 1px solid var(--border-color);
             border-radius: 999px;
             padding: 0.4rem 0.4rem 0.4rem 1.8rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
             transition: box-shadow var(--transition-speed), border-color var(--transition-speed);
         }
 
         .search-box:focus-within {
-            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
             border-color: #d1cbc1;
         }
 
@@ -372,12 +419,13 @@
             transition: all var(--transition-speed);
         }
 
-        .filter-pill:hover, .filter-pill.active {
+        .filter-pill:hover,
+        .filter-pill.active {
             border-color: var(--primary-accent);
             color: var(--primary-accent);
             background-color: rgba(97, 33, 43, 0.02);
         }
-        
+
         /* Hero Actions */
         .hero-actions {
             display: flex;
@@ -541,18 +589,18 @@
 
         /* Featured Article */
         .featured-article {
-            margin-bottom: 24px;   
+            margin-bottom: 24px;
         }
 
         .featured-article .article-card {
-            grid-column: 1 / -1; 
+            grid-column: 1 / -1;
         }
 
         .featured-article .article-title {
             font-size: 2rem;
             max-width: 800px;
         }
-        
+
         .featured-article .article-summary {
             font-size: 1.05rem;
             max-width: 800px;
@@ -602,7 +650,8 @@
             padding: 5rem 20px;
             text-align: center;
             color: white;
-            border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separator from footer */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            /* Subtle separator from footer */
         }
 
         .newsletter-section h2 {
@@ -721,7 +770,7 @@
 
         .footer-bottom {
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.85rem;
             opacity: 0.6;
             display: flex;
@@ -749,7 +798,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
             transition: transform var(--transition-speed), background-color var(--transition-speed);
         }
 
@@ -804,10 +853,11 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             transition: transform var(--transition-speed), background-color var(--transition-speed);
         }
+
         .floating-emergency:hover {
             transform: scale(1.05);
             background-color: var(--primary-hover);
@@ -818,6 +868,7 @@
             text-align: center;
             padding: 5rem 20px 3rem;
         }
+
         .dir-header h1 {
             font-family: var(--font-heading);
             font-size: clamp(2rem, 5vw, 3.5rem);
@@ -825,6 +876,7 @@
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
+
         .dir-header p {
             color: var(--text-secondary);
             font-size: 1.05rem;
@@ -832,6 +884,7 @@
             margin: 0 auto;
             line-height: 1.6;
         }
+
         .dir-search-bar {
             max-width: 800px;
             margin: 2.5rem auto 1rem;
@@ -842,6 +895,7 @@
             border-radius: var(--border-radius-sm);
             padding: 0.85rem 1rem;
         }
+
         .dir-search-bar input {
             flex: 1;
             font-size: 1rem;
@@ -850,15 +904,18 @@
             border: none;
             color: var(--text-primary);
         }
+
         .dir-search-bar input::placeholder {
             color: #A09B96;
         }
+
         .dir-filters {
             max-width: 800px;
             margin: 0 auto 1.5rem;
             display: flex;
             gap: 1rem;
         }
+
         .dir-select {
             flex: 1;
             padding: 0.85rem 1rem;
@@ -872,6 +929,7 @@
             background-repeat: no-repeat;
             background-position: right 1rem center;
         }
+
         .dir-pills {
             max-width: 800px;
             margin: 0 auto 3rem;
@@ -880,6 +938,7 @@
             overflow-x: auto;
             padding-bottom: 0.5rem;
         }
+
         .dir-pill {
             padding: 0.5rem 1.25rem;
             border-radius: 999px;
@@ -890,15 +949,18 @@
             color: var(--text-secondary);
             transition: all var(--transition-speed);
         }
+
         .dir-pill:hover {
             border-color: var(--primary-accent);
             color: var(--primary-accent);
         }
+
         .dir-pill.active {
             background: var(--primary-accent);
             color: white;
             border-color: var(--primary-accent);
         }
+
         .dir-results-info {
             max-width: 800px;
             margin: 0 auto 1.5rem;
@@ -908,6 +970,7 @@
             letter-spacing: 0.1em;
             color: var(--text-secondary);
         }
+
         .dir-cards {
             max-width: 800px;
             margin: 0 auto 4rem;
@@ -915,6 +978,7 @@
             flex-direction: column;
             gap: 1.5rem;
         }
+
         .dir-card {
             background: #FFFFFF;
             border: 1px solid var(--border-color);
@@ -922,10 +986,12 @@
             padding: 2rem;
             text-align: left;
         }
+
         .dir-card-pill {
             display: inline-block;
             padding: 0.4rem 0.75rem;
-            background: #EBDAC2; /* Light cream */
+            background: #EBDAC2;
+            /* Light cream */
             color: #4A1525;
             font-size: 0.75rem;
             font-weight: 700;
@@ -934,6 +1000,7 @@
             margin-bottom: 1.2rem;
             border-radius: var(--border-radius-sm);
         }
+
         .dir-card h2 {
             font-family: var(--font-heading);
             font-size: 1.5rem;
@@ -942,11 +1009,13 @@
             color: var(--text-primary);
             line-height: 1.3;
         }
+
         .dir-card p {
             color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .dir-card-meta {
             display: flex;
             gap: 2rem;
@@ -954,21 +1023,25 @@
             font-size: 0.9rem;
             margin-bottom: 2rem;
         }
+
         .dir-card-meta div {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
+
         .dir-card-meta svg {
             width: 16px;
             height: 16px;
         }
+
         .dir-card-actions {
             border-top: 1px solid var(--border-color);
             padding-top: 1.5rem;
             display: flex;
             gap: 2rem;
         }
+
         .dir-card-actions a {
             font-weight: 700;
             font-size: 0.9rem;
@@ -978,12 +1051,122 @@
             gap: 0.5rem;
             transition: color 0.2s;
         }
+
         .dir-card-actions a:hover {
             color: var(--primary-hover);
         }
+
+
+        /* ANTIGRAVITY EFFECTS */
         
+
+        /* General button antigravity */
+        button,
+        a.btn-primary,
+        a.btn-outline,
+        a.btn-load-more,
+        a.btn-emergency,
+        a.btn-signin,
+        .floating-btn,
+        .filter-pill,
+        .btn-search,
+        .btn-subscribe,
+        .lang-toggle button,
+        .hero-actions a,
+        .featured-read-btn {
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        button:hover,
+        a.btn-primary:hover,
+        a.btn-outline:hover,
+        a.btn-load-more:hover,
+        a.btn-emergency:hover,
+        a.btn-signin:hover,
+        .floating-btn:hover,
+        .filter-pill:hover,
+        .btn-search:hover,
+        .btn-subscribe:hover,
+        .lang-toggle button:hover,
+        .hero-actions a:hover,
+        .featured-read-btn:hover {
+            transform: translateY(-6px) scale(1.04) !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        button:active,
+        a.btn-primary:active,
+        a.btn-outline:active,
+        a.btn-load-more:active,
+        a.btn-emergency:active,
+        a.btn-signin:active,
+        .floating-btn:active,
+        .filter-pill:active,
+        .btn-search:active,
+        .btn-subscribe:active,
+        .lang-toggle button:active,
+        .hero-actions a:active,
+        .featured-read-btn:active {
+            transform: translateY(2px) scale(0.97) !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* Floating entrance container definitions */
+        .antigravity-float {
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+
+        .antigravity-float-active {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Ripple animation */
+        .ag-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--primary-accent, #61212B);
+            transform: scale(0);
+            animation: ripple-effect 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 10;
+        }
+
+        @keyframes ripple-effect {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Touch friendly minimum tap sizes */
+        @media (max-pointer: coarse) {
+
+            button,
+            a.btn-primary,
+            a.btn-outline,
+            a.btn-load-more,
+            a.btn-emergency,
+            a.btn-signin,
+            .floating-btn,
+            .filter-pill,
+            .btn-search,
+            .btn-subscribe,
+            .nav-links a {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -991,11 +1174,12 @@
         <div class="container">
             <div class="navbar-left">
                 <div class="logo-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem of India" class="logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+                        alt="Emblem of India" class="logo">
                 </div>
-                
+
                 <div class="nav-links">
-                    <a href="#">Explore Issues</a>
+                    <a href="explore.html">Explore Issues</a>
                     <a href="index.html">Guide</a>
                     <a href="directory.html" class="active">Directory</a>
                     <a href="news.html">News</a>
@@ -1012,7 +1196,12 @@
                     </div>
                     <button class="btn-signin">SIGN IN</button>
                     <button class="btn-emergency">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
                         EMERGENCY
                     </button>
                 </div>
@@ -1029,10 +1218,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-        <button class="drawer-close" id="drawerCloseBtn">✕</button>
-    </div>
+
 
     <!-- Directory Header Section -->
     <header class="dir-header">
@@ -1041,7 +1227,11 @@
             <p>Find courts, legal aid offices, government departments, and support organizations near you.</p>
 
             <div class="dir-search-bar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-secondary)"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-secondary)">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
                 <input type="text" placeholder="Search by name, city, or type...">
             </div>
 
@@ -1066,7 +1256,7 @@
                 <button class="dir-pill">Government Offices</button>
                 <button class="dir-pill">Law Firms</button>
             </div>
-            
+
             <div class="dir-results-info" style="text-align: left; padding: 0 10px;">
                 20 RESOURCES FOUND IN INDIA
             </div>
@@ -1085,19 +1275,22 @@
                     <div class="dir-card-meta">
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg>
                             0731-2432100
                         </div>
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
                             </svg>
                             Mon-Sat, 10:00 AM - 5:00 PM
                         </div>
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
                             </svg>
                             Varies
                         </div>
@@ -1116,13 +1309,15 @@
                     <div class="dir-card-meta">
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg>
                             0731-2529100
                         </div>
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
                             </svg>
                             Mon-Fri, 10:30 AM - 5:00 PM
                         </div>
@@ -1141,13 +1336,15 @@
                     <div class="dir-card-meta">
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg>
                             0731-2528800
                         </div>
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
                             </svg>
                             Mon-Sat, 10:00 AM - 5:00 PM
                         </div>
@@ -1166,13 +1363,15 @@
                     <div class="dir-card-meta">
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg>
                             15100
                         </div>
                         <div>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
                             </svg>
                             24/7
                         </div>
@@ -1201,16 +1400,24 @@
 
     <!-- Floating Elements -->
     <button class="floating-emergency">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+            </path>
+        </svg>
         Emergency
     </button>
 
     <div class="floating-container">
         <button class="floating-btn small" id="scrollToTopBtn" aria-label="Scroll to top">
-            <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <svg viewBox="0 0 24 24">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+            </svg>
         </button>
         <button class="floating-btn" aria-label="Open chat">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
         </button>
     </div>
 
@@ -1219,8 +1426,10 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col" style="padding-right: 2rem;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem" style="height: 50px; margin-bottom: 1.5rem; opacity: 0.3; filter: invert(1);">
-                    <p>India's first AI-powered Legal First-Response System. Legal aid for every Indian citizen, simplified.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem"
+                        style="height: 50px; margin-bottom: 1.5rem; opacity: 0.3; filter: invert(1);">
+                    <p>India's first AI-powered Legal First-Response System. Legal aid for every Indian citizen,
+                        simplified.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Get Help</h3>
@@ -1236,12 +1445,14 @@
                         <li><a href="#">RTI Generator</a></li>
                         <li><a href="#">Find a Lawyer</a></li>
                         <li><a href="#">Know Your Rights</a></li>
-                        <li><a href="https://nalsa.gov.in" target="_blank" rel="noopener noreferrer">NALSA Website ↗</a></li>
+                        <li><a href="https://nalsa.gov.in" target="_blank" rel="noopener noreferrer">NALSA Website ↗</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>About</h3>
-                    <p style="margin-bottom: 2rem;">Built at Hack-A-Sprint 2026. Empowering citizens through accessible legal information.</p>
+                    <p style="margin-bottom: 2rem;">Built at Hack-A-Sprint 2026. Empowering citizens through accessible
+                        legal information.</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1346,7 +1557,7 @@
         function renderFeatured() {
             const container = document.getElementById('featuredArticle');
             const data = featuredArticleData;
-            
+
             container.innerHTML = `
                 <div class="article-card">
                     <div class="article-card-content">
@@ -1373,13 +1584,13 @@
 
         function renderGrid() {
             const grid = document.getElementById('articlesGrid');
-            
+
             gridArticlesData.forEach((data, index) => {
                 const card = document.createElement('div');
                 card.className = 'article-card';
                 // Stagger columns for cool load effect
                 card.style.transitionDelay = `${(index % 3) * 80}ms`;
-                
+
                 card.innerHTML = `
                     <div class="article-card-content">
                         <div class="article-meta">
@@ -1397,7 +1608,7 @@
                         </svg>
                     </div>
                 `;
-                
+
                 grid.appendChild(card);
             });
         }
@@ -1407,12 +1618,12 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate-up');
-                        observer.unobserve(entry.target); 
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, { 
+            }, {
                 threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px' 
+                rootMargin: '0px 0px -50px 0px'
             });
 
             document.querySelectorAll('.article-card').forEach(card => {
@@ -1425,7 +1636,7 @@
             const mobileBtn = document.getElementById('mobileMenuBtn');
             const closeBtn = document.getElementById('drawerCloseBtn');
             const drawer = document.getElementById('mobileDrawer');
-            
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
                     navbar.classList.add('scrolled');
@@ -1444,25 +1655,120 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            mobileBtn.addEventListener('click', () => {
-                drawer.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
+            if (mobileBtn && drawer) {
+                mobileBtn.addEventListener('click', () => {
+                    drawer.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
 
-            closeBtn.addEventListener('click', () => {
-                drawer.classList.remove('open');
-                document.body.style.overflow = '';
-            });
+            if (closeBtn && drawer) {
+                closeBtn.addEventListener('click', () => {
+                    drawer.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             renderFeatured();
             renderGrid();
-            
+
             setTimeout(() => {
                 setupScrollAnimations();
             }, 50);
         });
     </script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Lenis Smooth Scroll Setup
+            if (typeof Lenis !== 'undefined') {
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease-out cubic-like curve
+                    direction: 'vertical',
+                    gestureDirection: 'vertical',
+                    smooth: true,
+                    smoothTouch: false,
+                });
+
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+
+                requestAnimationFrame(raf);
+            }
+
+            // 2. Floating Entrance Animations
+            const agObserverOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const agObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('antigravity-float-active');
+                        }, entry.target.dataset.agDelay || 0);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, agObserverOptions);
+
+            // Find elements to animate
+            const elementsToFloat = document.querySelectorAll('.article-card, .footer-col, .hero, .search-container, .pills-container, .newsletter-section, .dashboard-card, .main-content > div');
+
+            elementsToFloat.forEach((el, index) => {
+                el.classList.remove('animate-up'); // override old animations
+                el.classList.add('antigravity-float');
+                // Stagger siblings based on order (100ms - 150ms roughly)
+                const staggerDelay = (index % 5) * 120;
+                el.dataset.agDelay = staggerDelay;
+                agObserver.observe(el);
+            });
+
+            // 3. Cursor / Tap Ripple Event Delegation
+            document.body.addEventListener('pointerdown', function (e) {
+                const target = e.target.closest('button, a.btn-primary, a.btn-outline, a.btn-load-more, a.btn-emergency, a.btn-signin, .floating-btn, .filter-pill, .btn-search, .btn-subscribe, .hero-actions a');
+
+                if (target) {
+                    const rect = target.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const size = Math.max(rect.width, rect.height);
+
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ag-ripple');
+
+                    ripple.style.width = `${size}px`;
+                    ripple.style.height = `${size}px`;
+                    ripple.style.left = `${x - size / 2}px`;
+                    ripple.style.top = `${y - size / 2}px`;
+
+                    if (target.classList.contains('btn-primary') || target.classList.contains('btn-search') || target.classList.contains('btn-emergency') || target.classList.contains('floating-btn')) {
+                        ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+                    }
+
+                    const compStyle = window.getComputedStyle(target);
+                    if (compStyle.position === 'static') {
+                        target.style.position = 'relative';
+                    }
+
+                    target.appendChild(ripple);
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 500);
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>

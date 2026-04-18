@@ -1,8 +1,8 @@
 import re
 
-files = ['index.html', 'directory.html', 'news.html']
+files = ['index.html', 'directory.html', 'news.html', 'explore.html']
 links = [
-    ('Explore Issues', '#', False),
+    ('Explore Issues', 'explore.html', False),
     ('Guide', 'index.html', False),
     ('Directory', 'directory.html', False),
     ('News', 'news.html', False),
@@ -37,3 +37,4 @@ def update_file(filename, active_name):
 update_file('index.html', 'Guide')
 update_file('directory.html', 'Directory')
 update_file('news.html', 'News')
+update_file('explore.html', 'Explore Issues')
